@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JSY ANIME • Download indisponível</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="jose.ico" type="image/x-icon" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: linear-gradient(135deg, #0b0f17, #111826);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+    .card {
+      background: rgba(17, 24, 38, 0.9);
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+      max-width: 520px;
+      width: 100%;
+      backdrop-filter: blur(6px);
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      color: #4f8cff;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+    h1 {
+      margin-bottom: 10px;
+      font-size: 26px;
+      color: #fff;
+    }
+    p {
+      margin: 6px 0;
+      color: #bbb;
+      font-size: 15px;
+    }
+    .contador {
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 16px;
+      color: #4f8cff;
+    }
+    .aviso-manual {
+      margin-top: 18px;
+      font-size: 13px;
+      color: #f87171;
+      display: none;
+    }
+    .loading {
+      margin-top: 18px;
+      width: 26px;
+      height: 26px;
+      border: 3px solid rgba(255,255,255,0.2);
+      border-top-color: #4f8cff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .btn-voltar {
+      margin-top: 25px;
+      background: #4f8cff;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 8px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn-voltar:hover {
+      background: #3b6fd6;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">MIDIA PAZ</div>
+    <h1>Fotos/Vídeos indisponível</h1>
+    <p class="contador">Esta página será fechada em <span id="tempo">5</span> segundos...</p>
+    <div class="loading"></div>
+    <p class="aviso-manual" id="aviso-manual">⚠ Caso a aba não feche sozinha, feche manualmente.</p>
+    <button class="btn-voltar" onclick="window.close()">Fechar agora</button>
+  </div>
+
+  <script>
+    let segundos = 5;
+    const span = document.getElementById("tempo");
+    const aviso = document.getElementById("aviso-manual");
+
+    const timer = setInterval(() => {
+      segundos--;
+      span.textContent = segundos;
+      if (segundos <= 0) {
+        clearInterval(timer);
+        window.close();
+        setTimeout(() => {
+          aviso.style.display = "block";
+        }, 1000);
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
