@@ -208,3 +208,46 @@ function renderizarPaginacao(total) {
 
 //--------------------------------------------------
 window.addEventListener("load", carregarDados);
+
+//--------------------------------------------------
+// BLOQUEIO DEVTOOLS / INSPECIONAR
+//--------------------------------------------------
+(function blockDevTools() {
+    const insta = "https://www.instagram.com/pazmaranguape/";
+
+    function redirect() {
+        window.location.href = insta;
+    }
+
+    // Detecta console aberto
+    let aberto = false;
+    const check = setInterval(() => {
+        const inicio = performance.now();
+        debugger;
+        const tempo = performance.now() - inicio;
+        if (tempo > 50) {
+            if (!aberto) {
+                aberto = true;
+                redirect();
+            }
+        }
+    }, 300);
+
+    // Detecta teclas (F12, Ctrl+Shift+I, Ctrl+U, Ctrl+Shift+J)
+    document.addEventListener("keydown", e => {
+        if (
+            e.key === "F12" ||
+            (e.ctrlKey && e.shiftKey && e.key === "I") ||
+            (e.ctrlKey && e.shiftKey && e.key === "J") ||
+            (e.ctrlKey && e.key === "U")
+        ) {
+            e.preventDefault();
+            redirect();
+        }
+    });
+
+    // Evitar voltar
+    window.addEventListener("pageshow", () => {
+        if (performance.navigation.type === 2) redirect();
+    });
+})();
