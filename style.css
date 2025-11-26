@@ -1,0 +1,178 @@
+/* --- mantendo seu visual original --- */
+/* Remove margens padrões */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #121212;
+    color: #f0f0f0;
+    font-family: 'Segoe UI', sans-serif;
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+}
+h1 {
+    text-align: center;
+    color: #00ffea;
+}
+/* filtros */
+select, input[type="text"] {
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: none;
+    background-color: #1f1f1f;
+    color: #fff;
+    margin: 5px;
+    width: 100%;
+    max-width: 260px;
+}
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+/* links */
+.link-item {
+    background-color: #1f1f1f;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 10px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+    transition: transform 0.3s, background-color 0.3s;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.link-item:hover {
+    transform: scale(1.02);
+    background-color: #2a2a2a;
+}
+.link-item a {
+    color: #00ffea;
+    font-size: 18px;
+    text-decoration: none;
+}
+.link-item a:hover {
+    text-decoration: underline;
+}
+
+/* selos */
+.badge-new {
+    color: #ffffff;
+    background: #0066ff;
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-weight: 700;
+    margin-left: 6px;
+    font-size: 13px;
+}
+.badge-destaque {
+    color:#121212;
+    background:#ffd700;
+    padding:4px 8px;
+    border-radius:8px;
+    font-weight:700;
+    font-size:12px;
+}
+
+/* paginação */
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+    flex-wrap: wrap;
+}
+.pagination button {
+    background-color: #00ffea;
+    border: none;
+    color: #121212;
+    padding: 9px 14px;
+    margin: 3px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.pagination button:hover {
+    background-color: #00bfb0;
+}
+.pagination button:disabled {
+    background-color: #444;
+    color: #888;
+    cursor: default;
+}
+
+/* status */
+#status {
+    text-align: center;
+    margin: 20px 0;
+    font-weight: bold;
+    color: #00ffea;
+}
+
+/* rodapé */
+footer {
+    margin-top: 35px;
+    text-align: center;
+    color: #aaa;
+}
+footer a {
+    color: #00ffea;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* LOADING */
+#loading {
+    display: none;
+    text-align: center;
+    margin: 25px 0;
+}
+.spinner {
+    width: 45px;
+    height: 45px;
+    border: 4px solid #00ffea;
+    border-top: 4px solid transparent;
+    border-radius: 50%;
+    margin: auto;
+    animation: spin 0.9s linear infinite;
+}
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* animação fade */
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* 📱 OTIMIZAÇÃO PARA CELULAR */
+@media (max-width: 660px) {
+    body {
+        padding: 14px;
+    }
+    .link-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        padding: 14px;
+    }
+    .link-item a {
+        font-size: 16px;
+        width: 100%;
+        word-break: break-word;
+    }
+    select, input[type="text"] {
+        max-width: none;
+        font-size: 15px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+}
